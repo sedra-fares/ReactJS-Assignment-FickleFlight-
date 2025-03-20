@@ -6,6 +6,10 @@ import RecentSearches from './components/RecentSearches'
 import TripCategories from './components/TripCategories'
 import RecommendedHolidays from './components/RecHolidays'
 import PopularDestinations from './components/PopularDest'
+import PopularStays from './components/PopularStays'
+import Newsletter from './components/NewsLetter'
+import Footer from './components/Footer'
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
  
@@ -18,6 +22,9 @@ function App() {
      <TripCategories/>
      <PopularDestinations/>
      <RecommendedHolidays/>
+    <PopularStays/>
+    <Newsletter/>
+    <Footer/>
     </>
   )
 }

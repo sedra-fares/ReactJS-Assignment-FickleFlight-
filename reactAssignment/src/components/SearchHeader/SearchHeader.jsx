@@ -1,107 +1,44 @@
-import React, { useState } from "react";
-import "./SearchHeader.css";
-import bannerBG from "../../assets/BannerBackground.png";
-import date from "../../assets/date.png";
+import React from "react";
+import bgImage from "../../assets/BannerBackground.png"; 
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const SearchHeader = () => {
-  const [flightType, setFlightType] = useState("return");
-
-  const handleRadioChange = (event) => {
-    setFlightType(event.target.value);
-  };
-
+  const [tripType, setTripType] = useState("one-way");
+  
   return (
-    <>
-      <div className="search-section">
-        <div className="banner-gradient"></div>
-        <img className="banner-background" src={bannerBG} alt="Banner Background" />
-        <div className="search-container">
-          <div className="title">
-            <div className="let-s-explore-travel-the-world">
-              Let's explore &amp; travel the world
-            </div>
-            <div className="find-the-best-destinations-and-the-most-popular-stays">
-              Find the best destinations and the most popular stays!
-            </div>
+    <div
+      className="d-flex flex-column align-items-center justify-content-center text-center"
+      style={{
+        background: `url(${bgImage}) no-repeat center center/cover, #007bff`,
+        height: "70vh",
+        padding: "20px",
+      }}
+    >
+       <h1 className="text-white fw-bold display-4">Let's explore & travel the world</h1>
+      <p className="text-white fs-5">Find the best destinations and the most popular stays!</p>
+
+      <div className="p-4 rounded shadow bg-white" style={{ maxWidth: "800px", width: "100%", borderRadius: "15px" }}>
+        <h5 className="fw-bold text-start">SEARCH FLIGHTS</h5>
+        <div className="d-flex flex-wrap gap-3 mt-3">
+          <input type="text" className="form-control flex-fill" placeholder="Departure" value="Singapore (SIN)" readOnly style={{ borderRadius: "10px" }} />
+          <input type="text" className="form-control flex-fill" placeholder="Arrival" value="Los Angeles (LA)" readOnly style={{ borderRadius: "10px" }} />
+          <input type="date" className="form-control" defaultValue="2022-01-05" style={{ borderRadius: "10px", minWidth: "180px" }} />
+        </div>
+        <div className="d-flex align-items-center justify-content-between mt-3">
+          <div>
+            <input type="radio" id="return" name="tripType" value="return" checked={tripType === "return"} onChange={() => setTripType("return")} />
+            <label htmlFor="return" className="ms-2">Return</label>
+            <input type="radio" id="oneway" name="tripType" value="one-way" className="ms-3" checked={tripType === "one-way"} onChange={() => setTripType("one-way")} />
+            <label htmlFor="oneway" className="ms-2">One-way</label>
           </div>
-          <div className="search-form">
-            <div className="form-title-group">
-              <div className="search-flights">Search flights</div>
-              <div className="flight-options">
-                <div className="flight-type">
-                  <div className="radio">
-                    <div className="padding">
-                      <input
-                        type="radio"
-                        id="return"
-                        name="flightType"
-                        value="return"
-                        checked={flightType === "return"}
-                        onChange={handleRadioChange}
-                      />
-                    </div>
-                    <div className="label">Return</div>
-                  </div>
-                  <div className="radio2">
-                    <div className="padding">
-                      <input
-                        type="radio"
-                        id="one-way"
-                        name="flightType"
-                        value="one-way"
-                        checked={flightType === "one-way"}
-                        onChange={handleRadioChange}
-                      />
-                    </div>
-                    <div className="label2">One-way</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="form-inputs-row">
-              <div className="inputs-row">
-                <div className="departure-field">
-                  <div className="input">
-                    <div className="label-container">
-                      <div className="departure">Departure</div>
-                    </div>
-                    <div className="active">
-                      <div className="singapore-sin">Singapore (SIN)</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="arrival-field">
-                  <div className="input">
-                    <div className="label-container">
-                      <div className="arrival">Arrival</div>
-                    </div>
-                    <div className="active">
-                      <div className="los-angeles-la">Los Angeles (LA)</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="select-outlined">
-                  <div className="input">
-                    <div className="label-container">
-                      <div className="date">Date</div>
-                    </div>
-                    <div className="active">
-                      <div className="_01-05-2022">01/05/2022</div>
-                      <img className="date2" src={date} alt="Date" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="button-group">
-                <div className="search-flights-button">
-                  <div className="button">Search flights</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button className="btn btn-warning px-4 py-2 fw-bold" style={{ borderRadius: "10px" }}>Search Flights</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
+
+ 
 
 export default SearchHeader;

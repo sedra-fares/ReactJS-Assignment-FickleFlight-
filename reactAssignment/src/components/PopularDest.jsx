@@ -13,17 +13,19 @@ const destinations = [
   { name: "Tuscany", price: "$1245", image: tuscany },
 ];
 
-const PopularDestinations = ({ onViewAll }) => {
+const PopularDestinations = () => {
   return (
     <div className="popular-destinations">
       <div className="section-header">
         <h3>Most Popular Destinations</h3>
-        <button className="view-all-btn" onClick={onViewAll}>View All</button>
+        <a href="#" className="text-primary text-decoration-none">
+          View all stays →
+        </a>
       </div>
 
       <div className="destination-list">
         {destinations.map((dest, index) => (
-          <div key={index} className="destination-card detailed-card"> {/* ستايل العطلات */}
+          <div key={index} className="destination-card detailed-card"> 
             <img src={dest.image} alt={dest.name} />
             <div className="destination-overlay">
               <span>{dest.name}</span>

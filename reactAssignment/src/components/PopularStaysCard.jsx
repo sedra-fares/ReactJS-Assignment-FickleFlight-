@@ -1,24 +1,24 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const PopularStaysCard = ({details}) => {
+const PopularStaysCard = ({ image, details, place, cost, rating, reviews }) => {
   return (
     <div className="card shadow-sm rounded" style={{ width: "18rem" }}>
-      <img src={details.image} className="card-img-top"  />
+      <img src={image} className="card-img-top" alt={place} />
       <div className="card-body">
+        <small className="text-muted">{details}</small>
+        <h5 className="card-title fw-bold">{place}</h5>
+        <p className="card-text">{cost}</p>
+
         <div className="d-flex align-items-center">
           <span className="text-warning me-1">⭐</span>
-          <span className="fw-bold">4.9</span>
-          <a href="#" className="ms-1 text-primary">(60 reviews)</a>
+          <span className="fw-bold">{rating}</span>
+          <a href="#" className="ms-1 text-primary">({reviews} reviews)</a>
         </div>
-        
-        <small className="text-muted">{details.detail}</small>
-        <h5 className="card-title fw-bold">{details.place}</h5>
-        <p className="card-text">{details.cost}</p>
-        
+
         <a href="#" className="btn btn-outline-primary w-100 mt-3">MORE DETAILS</a>
       </div>
-      </div>
+    </div>
   );
 };
 
